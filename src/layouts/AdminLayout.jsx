@@ -12,6 +12,7 @@ import {
   Settings,
   LogOut,
 } from "lucide-react";
+import bisaLogo from '../assets/bisa.png';
 
 export default function AdminLayout() {
   const navigate = useNavigate();
@@ -66,11 +67,11 @@ export default function AdminLayout() {
       <aside className="w-64 bg-white border-r border-gray-200 flex flex-col h-full flex-shrink-0">
         {/* AREA LOGO */}
         <div className="p-6 flex justify-center items-center border-b border-gray-100">
-          {/* Ganti src dengan path logo Toba Anda yang disimpan di folder public/ */}
+          {/* Logo Toba menggunakan file bisa.png dari assets */}
           <img
-            src="/logo-toba.png"
+            src={bisaLogo}
             alt="Logo Toba"
-            className="h-24 object-contain"
+            className="h-32 object-contain"
           />
         </div>
 
