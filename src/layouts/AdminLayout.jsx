@@ -1,4 +1,6 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import logoDesa from "../assets/logodesa.png";
+import me from "../assets/me.jpg";
 import {
   Home,
   Users,
@@ -27,11 +29,6 @@ export default function AdminLayout() {
   const mainMenus = [
     { name: "Dashboard", path: "/admin", icon: <Home size={20} /> },
     {
-      name: "Data Penduduk",
-      path: "/admin/penduduk",
-      icon: <Users size={20} />,
-    },
-    {
       name: "Infografis",
       path: "/admin/infografis",
       icon: <PieChart size={20} />,
@@ -47,19 +44,7 @@ export default function AdminLayout() {
     { name: "IDM", path: "/admin/idm", icon: <PlusCircle size={20} /> },
   ];
 
-  // Daftar Menu Admin Bawah
-  const adminMenus = [
-    {
-      name: "Kontak & Pengaduan",
-      path: "/admin/kontak",
-      icon: <User size={20} />,
-    },
-    {
-      name: "Pengaturan",
-      path: "/admin/pengaturan",
-      icon: <Settings size={20} />,
-    },
-  ];
+ 
 
   return (
     <div className="flex h-screen bg-gray-50 overflow-hidden font-sans">
@@ -67,11 +52,11 @@ export default function AdminLayout() {
       <aside className="w-64 bg-white border-r border-gray-200 flex flex-col h-full flex-shrink-0">
         {/* AREA LOGO */}
         <div className="p-6 flex justify-center items-center border-b border-gray-100">
-          {/* Logo Toba menggunakan file bisa.png dari assets */}
+          {/* Ganti src dengan path logo Toba Anda yang disimpan di folder public/ */}
           <img
-            src={bisaLogo}
+            src="/logo-toba.png"
             alt="Logo Toba"
-            className="h-32 object-contain"
+            className="h-24 object-contain"
           />
         </div>
 
@@ -97,31 +82,6 @@ export default function AdminLayout() {
               </NavLink>
             ))}
           </nav>
-
-          {/* SECTION ADMIN BAWAH */}
-          <div className="mt-8">
-            <h3 className="px-6 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
-              Admin
-            </h3>
-            <nav className="space-y-1 px-3">
-              {adminMenus.map((menu) => (
-                <NavLink
-                  key={menu.name}
-                  to={menu.path}
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-colors ${
-                      isActive
-                        ? "bg-[#4a9f6a] text-white"
-                        : "text-gray-500 hover:bg-gray-100 hover:text-gray-900"
-                    }`
-                  }
-                >
-                  {menu.icon}
-                  <span>{menu.name}</span>
-                </NavLink>
-              ))}
-            </nav>
-          </div>
         </div>
 
         {/* AREA PROFIL USER (Paling Bawah) */}
@@ -129,7 +89,7 @@ export default function AdminLayout() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <img
-                src="https://i.pravatar.cc/150?img=11" // Gambar avatar dummy
+                src={me} // Gambar avatar dummy
                 alt="Admin Profil"
                 className="w-10 h-10 rounded-full object-cover"
               />
